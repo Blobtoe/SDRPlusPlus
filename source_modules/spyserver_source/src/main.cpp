@@ -126,9 +126,9 @@ private:
         _this->client->setSetting(SPYSERVER_SETTING_IQ_DECIMATION, _this->srId + _this->client->devInfo.MinimumIQDecimation);
         _this->client->setSetting(SPYSERVER_SETTING_IQ_FREQUENCY, _this->freq);
         _this->client->setSetting(SPYSERVER_SETTING_STREAMING_MODE, SPYSERVER_STREAM_MODE_IQ_ONLY);
+        _this->client->startStream();
         _this->client->setSetting(SPYSERVER_SETTING_GAIN, _this->gain);
         _this->client->setSetting(SPYSERVER_SETTING_IQ_DIGITAL_GAIN, _this->client->computeDigitalGain(srvBits, _this->gain, _this->srId + _this->client->devInfo.MinimumIQDecimation));
-        _this->client->startStream();
 
         _this->running = true;
         spdlog::info("SpyServerSourceModule '{0}': Start!", _this->name);
